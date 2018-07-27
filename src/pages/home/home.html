@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Noticias
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-card *ngFor="let evento of items"  (click)="go('DetallePage', evento.id)">
+        <img src="http://45.55.43.148/arsal/images/noticias/{{evento.imageUrl}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            <h3 class="text">{{evento.titulo}}</h3> 
+            </ion-card-title>
+          <p>
+            {{evento.text | slice:0:100}} ... [Leer mas]
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+ 
 </ion-content>
